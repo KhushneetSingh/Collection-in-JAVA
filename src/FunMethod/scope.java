@@ -1,3 +1,4 @@
+package FunMethod;
 // Demonstrates variable scope in Java
 public class scope {
     static int x = 10; // Class variable

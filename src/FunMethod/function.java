@@ -1,3 +1,4 @@
+package FunMethod;
 import java.util.*;
 
 // This class demonstrates passing strings to methods and how Java handles string immutability.
