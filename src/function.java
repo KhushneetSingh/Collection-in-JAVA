@@ -16,6 +16,10 @@ public class function {
         great(mae);
         // Print the value of mae after method call
         System.out.println("mae = " + mae);
+
+        int arr[] = {1, 2, 3, 4, 5};
+        change(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
     // Method to greet a person by name
@@ -28,5 +32,12 @@ public class function {
         // Assign a new value to the parameter
         naam = "Singh";
         System.out.println("Hello, " + naam + "!");
+    }
+
+    // Method to change the contents of an array
+    static void change(int arr[]) {
+        // Change the first element of the array
+        arr[0] = 10;
+        System.out.println("Array changed inside method: " + Arrays.toString(arr));
     }
 }
