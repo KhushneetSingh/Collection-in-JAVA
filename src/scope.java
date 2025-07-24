@@ -15,10 +15,10 @@ public class scope {
         }
         // Variables a and b retain their modified values after the block
         System.out.println("Before block: a = " + a + ", b = " + b);
-        
+
         System.out.println("Value of x = " + x); // Accessing class variable x
         int x = 5; // Local variable, shadows class variable x
-        System.out.println("Local x = " + x); // Prints the local variable x
+        System.out.println("Local x = " + x); // Prints the local variable x overriding the class variable
     }
 
     // Method to demonstrate local variable scope
