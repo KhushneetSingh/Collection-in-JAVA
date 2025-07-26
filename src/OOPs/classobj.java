@@ -2,38 +2,39 @@ package OOPs;
 
 public class classobj {
     public static void main(String[] args) {
-        Person p1 = new Person();       // Create an instance of Person class
-        p1.name = "John";   // Set the name property
-        p1.age = 30;    // Set the age property
+        Person john = new Person();       // Create an instance of Person class
+        john.name = "John";   // Set the name property
+        john.age = 30;    // Set the age property
 
-        System.out.println("Name: " + p1.name+ ", Age: " + p1.age);
+        System.out.println("Name: " + john.name + ", Age: " + john.age);
 
-        Person p2 = new Person(22, "Khushneet Singh Sardar");   // Default constructor creates another instance
-        p2.name = "Jane";
-        p2.age = 25;
+        Person khushneet = new Person(22, "Khushneet Singh Sardar");   // Parameterized constructor creates another instance
+        System.out.println("Name: " + khushneet.name + ", Age: " + khushneet.age);
 
-        System.out.println("Name: " + p2.name + ", Age: " + p2.age);
+        Person singh = new Person("Singh", 25);
+        System.out.println("Name: " + singh.name + ", Age: " + singh.age);
 
-        Person p3 = new Person("Singh", 25);
-        p3.name = "Singh";
-        p3.age = 25;
+        Developer devAlice = new Developer(28, "Alice"); // Create an instance of Developer class with parameters
+        Developer devBob = new Developer("Bob", 30); // Create another instance of Developer class with parameters
+        Developer devDefault = new Developer(); // Create an instance of Developer class using default constructor
 
-        Developer dev1 = new Developer(); // Create an instance of Developer class using default constructor
-        Developer dev2 = new Developer(28, "Alice"); // Create an instance of Developer class with parameters
-        Developer dev3 = new Developer("Bob", 30); // Create another instance of Developer class with parameters
-        System.out.println("Name: " + dev2.name + ", Age: " + dev2.age);
-        System.out.println("Name: " + dev3.name + ", Age: " + dev3.age);
-        System.out.println("Name: " + dev1.name + ", Age: " + dev1.age);
+        System.out.println("Name: " + devAlice.name + ", Age: " + devAlice.age);
+        System.out.println("Name: " + devBob.name + ", Age: " + devBob.age);
+        System.out.println("Name: " + devDefault.name + ", Age: " + devDefault.age);
 
-        p1.eat();  // Call the eat method on p1
-        p2.walk(); // Call the walk method on p2
-        p2.walk(2); // Call the overloaded walk method on p2
-        p3.walk(5); // Call the overloaded walk method on p3
+        john.eat();  // Call the eat method on john
+        khushneet.walk(); // Call the walk method on khushneet
+        khushneet.walk(2); // Call the overloaded walk method on khushneet
+        singh.walk(5); // Call the overloaded walk method on singh
+
+        john.dowork(); // Person working
+        devAlice.dowork(); // Developer working
+
         System.out.println("Total persons created: " + Person.count); // Access static variable count
     }
 }
 
-
+// Developer class inherits Person, represents a specialized type of Person
 class Developer extends Person {
     public Developer() {
         super(); // Call the default constructor of Person
@@ -54,13 +55,16 @@ class Developer extends Person {
     }
 }
 
-
+// Person class with properties and behaviors
 class Person {
     String name;    // Instance variable for name property
     int age;    // Property for age
 
     static int count = 0; // Static variable means it is property of the class, not instance do not need to create object to access it
+
     public Person() {   // Default constructor
+        name = "Unknown";
+        age = 0;
         count++;
         System.out.println("A new person has been created.");
     }
@@ -68,6 +72,8 @@ class Person {
     public Person(int newAge, String newName){
         name = newName; // Constructor with parameters to initialize name and age
         age = newAge;
+        count++;
+        System.out.println("A new person has been created with name: " + name + " and age: " + age);
     }
 
     public Person(String name, int age) {
@@ -93,4 +99,6 @@ class Person {
 /*
  * This is also a example of a polymorphism concept in OOPs, where the method walk is overloaded.
  * The same method name is used with different parameters.
+ * Also, method overriding is shown with dowork() in Developer.
+ * Static variable count tracks total persons created.
 */
