@@ -1,0 +1,22 @@
+package OOPs;
+
+public class classobj {
+    public static void main(String[] args) {
+        Person p1 = new Person();       // Create an instance of Person class
+        p1.name = "John";   // Set the name property
+        p1.age = 30;    // Set the age property
+
+        System.out.println("Name: " + p1.name+ ", Age: " + p1.age);
+
+        Person p2 = new Person();
+        p2.name = "Jane";
+        p2.age = 25;
+
+        System.out.println("Name: " + p2.name + ", Age: " + p2.age);
+    }
+}
+
+class Person {
+    String name;    // Instance variable for name property
+    int age;    // Property for age
+}
