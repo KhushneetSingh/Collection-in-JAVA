@@ -13,10 +13,20 @@ public class classobj {
         p2.age = 25;
 
         System.out.println("Name: " + p2.name + ", Age: " + p2.age);
+
+        p1.eat();  // Call the eat method on p1
+        p2.walk(); // Call the walk method on p2
     }
 }
 
 class Person {
     String name;    // Instance variable for name property
     int age;    // Property for age
+
+    void walk() {   // Behavior method for walking
+        System.out.println(name + " is walking.");
+    }
+    void eat() {    // Behavior method for eating
+        System.out.println(name + " is eating.");
+    }
 }
