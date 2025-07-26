@@ -3,24 +3,24 @@ package OOPs;
 public class classobj {
     public static void main(String[] args) {
         Person john = new Person();       // Create an instance of Person class
-        john.name = "John";   // Set the name property
+        john.setName("John");   // Set the name property using setter
         john.age = 30;    // Set the age property
 
-        System.out.println("Name: " + john.name + ", Age: " + john.age);
+        System.out.println("Name: " + john.getName() + ", Age: " + john.age); // Get the name using getter
 
         Person khushneet = new Person(22, "Khushneet Singh Sardar");   // Parameterized constructor creates another instance
-        System.out.println("Name: " + khushneet.name + ", Age: " + khushneet.age);
+        System.out.println("Name: " + khushneet.getName() + ", Age: " + khushneet.age);
 
         Person singh = new Person("Singh", 25);
-        System.out.println("Name: " + singh.name + ", Age: " + singh.age);
+        System.out.println("Name: " + singh.getName() + ", Age: " + singh.age);
 
         Developer devAlice = new Developer(28, "Alice"); // Create an instance of Developer class with parameters
         Developer devBob = new Developer("Bob", 30); // Create another instance of Developer class with parameters
         Developer devDefault = new Developer(); // Create an instance of Developer class using default constructor
 
-        System.out.println("Name: " + devAlice.name + ", Age: " + devAlice.age);
-        System.out.println("Name: " + devBob.name + ", Age: " + devBob.age);
-        System.out.println("Name: " + devDefault.name + ", Age: " + devDefault.age);
+        System.out.println("Name: " + devAlice.getName() + ", Age: " + devAlice.age);
+        System.out.println("Name: " + devBob.getName() + ", Age: " + devBob.age);
+        System.out.println("Name: " + devDefault.getName() + ", Age: " + devDefault.age);
 
         john.eat();  // Call the eat method on john
         khushneet.walk(); // Call the walk method on khushneet
@@ -57,8 +57,8 @@ class Developer extends Person {
 
 // Person class with properties and behaviors
 class Person {
-    String name;    // Instance variable for name property
-    int age;    // Property for age
+    private String name;    // Encapsulated: private property for name
+    public int age;         // Public property for age (for demo)
 
     static int count = 0; // Static variable means it is property of the class, not instance do not need to create object to access it
 
@@ -83,6 +83,14 @@ class Person {
         System.out.println("A new person has been created with name: " + name + " and age: " + age);
     }
 
+    // Encapsulation: getter and setter for name
+    public String getName() {
+        return name;
+    }
+    public void setName(String n) {
+        name = n;
+    }
+
     void walk() {   // Behavior method for walking
         System.out.println(name + " is walking.");
     }
@@ -101,4 +109,5 @@ class Person {
  * The same method name is used with different parameters.
  * Also, method overriding is shown with dowork() in Developer.
  * Static variable count tracks total persons created.
+ * Encapsulation: name is private, use getName/setName to access it.
 */
