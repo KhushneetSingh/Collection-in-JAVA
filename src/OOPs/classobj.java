@@ -8,7 +8,7 @@ public class classobj {
 
         System.out.println("Name: " + p1.name+ ", Age: " + p1.age);
 
-        Person p2 = new Person();
+        Person p2 = new Person();   // Default constructor creates another instance
         p2.name = "Jane";
         p2.age = 25;
 
@@ -24,6 +24,12 @@ class Person {
     String name;    // Instance variable for name property
     int age;    // Property for age
 
+    static int count = 0; // Static variable means it is property of the class, not instance do not need to create object to access it
+    Person() {   // Default constructor
+        count++;
+        System.out.println("A new person has been created.");
+    }
+
     void walk() {   // Behavior method for walking
         System.out.println(name + " is walking.");
     }
@@ -34,3 +40,7 @@ class Person {
         System.out.println(name + " is walking " + steps + " steps.");
     }
 }
+/*
+ * This is also a example of a polymorphism concept in OOPs, where the method walk is overloaded.
+ * The same method name is used with different parameters.
+*/
