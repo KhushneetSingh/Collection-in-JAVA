@@ -16,6 +16,7 @@ public class classobj {
 
         p1.eat();  // Call the eat method on p1
         p2.walk(); // Call the walk method on p2
+        p2.walk(2); // Call the overloaded walk method on p2
     }
 }
 
@@ -28,5 +29,8 @@ class Person {
     }
     void eat() {    // Behavior method for eating
         System.out.println(name + " is eating.");
+    }
+    void walk(int steps) { // Overloaded method for walking with steps
+        System.out.println(name + " is walking " + steps + " steps.");
     }
 }
