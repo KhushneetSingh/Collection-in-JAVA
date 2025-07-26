@@ -18,6 +18,13 @@ public class classobj {
         p3.name = "Singh";
         p3.age = 25;
 
+        Developer dev1 = new Developer(); // Create an instance of Developer class using default constructor
+        Developer dev2 = new Developer(28, "Alice"); // Create an instance of Developer class with parameters
+        Developer dev3 = new Developer("Bob", 30); // Create another instance of Developer class with parameters
+        System.out.println("Name: " + dev2.name + ", Age: " + dev2.age);
+        System.out.println("Name: " + dev3.name + ", Age: " + dev3.age);
+        System.out.println("Name: " + dev1.name + ", Age: " + dev1.age);
+
         p1.eat();  // Call the eat method on p1
         p2.walk(); // Call the walk method on p2
         p2.walk(2); // Call the overloaded walk method on p2
@@ -25,6 +32,28 @@ public class classobj {
         System.out.println("Total persons created: " + Person.count); // Access static variable count
     }
 }
+
+
+class Developer extends Person {
+    public Developer() {
+        super(); // Call the default constructor of Person
+        System.out.println("A new developer has been created.");
+    }
+    public Developer(int newAge, String newName) {
+        super(newAge, newName); // Call the parameterized constructor of Person
+        System.out.println("A new developer has been created with name: " + newName + " and age: " + newAge);
+    }
+    public Developer(String name, int age) {
+        super(name, age); // Call the constructor of Person with parameters
+        System.out.println("A new developer has been created with name: " + name + " and age: " + age);
+    }
+
+    @Override
+    void dowork() { // Overriding the dowork method from Person class
+        System.out.println("Developer is coding.");
+    }
+}
+
 
 class Person {
     String name;    // Instance variable for name property
@@ -37,7 +66,6 @@ class Person {
     }
 
     public Person(int newAge, String newName){
-        this(); // Call the constructor that is of the same class
         name = newName; // Constructor with parameters to initialize name and age
         age = newAge;
     }
@@ -57,6 +85,9 @@ class Person {
     }
     void walk(int steps) { // Overloaded method for walking with steps
         System.out.println(name + " is walking " + steps + " steps.");
+    }
+    void dowork() {
+        System.out.println("Person is working.");
     }
 }
 /*
